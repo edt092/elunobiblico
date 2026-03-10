@@ -56,18 +56,21 @@ export default function PaymentModal({ open, onClose }: Props) {
     setTimeout(() => {
       if (typeof window.PPaymentButtonBox === "undefined") return;
       const txId = `unobiblico-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+      const baseUrl = window.location.origin;
       new window.PPaymentButtonBox({
-        token:              PP_TOKEN,
+        token:               PP_TOKEN,
         clientTransactionId: txId,
-        amount:             PP_AMOUNT,
-        amountWithoutTax:   PP_AMOUNT,
-        amountWithTax:      0,
-        tax:                0,
-        service:            0,
-        tip:                0,
-        currency:           PP_CURRENCY,
-        storeId:            PP_STORE,
-        reference:          PP_REFERENCE,
+        amount:              PP_AMOUNT,
+        amountWithoutTax:    PP_AMOUNT,
+        amountWithTax:       0,
+        tax:                 0,
+        service:             0,
+        tip:                 0,
+        currency:            PP_CURRENCY,
+        storeId:             PP_STORE,
+        reference:           PP_REFERENCE,
+        // Payphone redirige aquí tras el pago con ?id=&clientTransactionId=
+        responseUrl: `${baseUrl}/success`,
       }).render("pp-button");
       initialized.current = true;
     }, 200);
