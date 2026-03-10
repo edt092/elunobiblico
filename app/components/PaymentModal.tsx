@@ -61,7 +61,12 @@ export default function PaymentModal({ open, onClose }: Props) {
       new window.PPaymentButtonBox({
         token: PP_TOKEN,
         clientTransactionId: txId,
-        amount: PP_AMOUNT,
+        amount: PP_AMOUNT,           // total en centavos: 1499
+        amountWithoutTax: PP_AMOUNT, // sin impuesto = total (producto digital)
+        amountWithTax: 0,
+        tax: 0,
+        service: 0,
+        tip: 0,
         currency: PP_CURRENCY,
         storeId: PP_STORE,
         reference: PP_REFERENCE,
