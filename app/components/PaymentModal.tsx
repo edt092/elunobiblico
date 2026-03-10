@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
 // ─────────────────────────────────────────────────────────────
-//  CONFIGURACIÓN PAYPHONE
+//  CONFIGURACIÓN PAYPHONE — valores en .env.local (nunca en git)
 // ─────────────────────────────────────────────────────────────
-const PP_TOKEN    = "gWO9f_HKPXzIub_vk8Xp05tfeGN60HQiEMn4jIzb98g5auP6pq7iu6nFXgGnC0Oow6vk3aCo6x-U67pfz9HZJMHrL_KdAnfcuHfyi7z7PSw6YRDJ0Phe-OFa-DEHQ7zfLEWx6ZXjAGmWfx6XA2KJDf7aeYQ9nk8Y-lWjyTdI2N2RDHGbbn_aWe3Gclb-Pw3C42mOQeafTXYX__r_vczb0tnWorZLyIye7Vs9fp3MuFyFAhoR3sMVmJTsV1dpun-aqyTIcARMMrIc18LUvtoljtWQ4XjRyZQYKzBL3sn3zHMjfDrcDMaZ-cbdcVY1RjYcFb1UdTKstrcL0uUcJ7Da67dSYTM";
-const PP_STORE    = "ac6fce98-3294-45bd-8f16-c1e64d5bb492";
-const PP_AMOUNT   = 1499;                  // centavos → $14.99
+const PP_TOKEN    = process.env.NEXT_PUBLIC_PP_TOKEN    ?? "";
+const PP_STORE    = process.env.NEXT_PUBLIC_PP_STORE_ID ?? "";
+const PP_AMOUNT   = 1499;   // centavos → $14.99
 const PP_CURRENCY  = "USD";
 const PP_REFERENCE = "El UNO Bíblico — Paquete Completo";
 // ─────────────────────────────────────────────────────────────
